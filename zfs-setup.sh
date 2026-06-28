@@ -39,11 +39,6 @@ echo
 read -rp "Wpisz 'tak' żeby kontynuować: " CONFIRM
 [[ "$CONFIRM" == "tak" ]] || { echo "Anulowano."; exit 0; }
 
-# ─── HOST ID ─────────────────────────────────────────────────────────────────
-
-HOST_ID="$(head -c4 /dev/urandom | od -A none -t x4 | tr -d ' \n')"
-zgenhostid "$HOST_ID" 2>/dev/null || printf "\\x${HOST_ID:0:2}\\x${HOST_ID:2:2}\\x${HOST_ID:4:2}\\x${HOST_ID:6:2}" > /etc/hostid
-info "hostid: $HOST_ID"
 
 # ─── ZPOOL ───────────────────────────────────────────────────────────────────
 
@@ -74,13 +69,13 @@ info "Tworzenie datasetu rpool/nixos..."
 zfs create -o canmount=off -o mountpoint=none rpool/nixos
 
 info "rpool/nixos/root  → /"
-zfs create -o canmount=on -o mountpoint=/ rpool/nixos/root
+zfs create -o canmount=on -o mountpoint=legacy rpool/nixos/root
 
 info "rpool/nixos/nix   → /nix"
-zfs create -o canmount=on -o mountpoint=/nix -o atime=off rpool/nixos/nix
+zfs create -o canmount=on -o mountpoint=legacy -o atime=off rpool/nixos/nix
 
 info "rpool/nixos/home  → /home"
-zfs create -o canmount=on -o mountpoint=/home rpool/nixos/home
+zfs create -o canmount=on -o mountpoint=legacy rpool/nixos/home
 
 echo
 info "Datasety:"
