@@ -21,6 +21,7 @@
     forAllSystems = nixpkgs.lib.genAttrs supportedSystems;
     coreModules = [ hjem.nixosModules.default
     ./users
+    ./core
     ];
   in {
     nixosConfigurations = {
