@@ -26,7 +26,7 @@
     nixosConfigurations = {
       minimal = nixpkgs.lib.nixosSystem {
         pkgs = import nixpkgs {
-          system = "x806_64-linux";
+          system = "x86_64-linux";
           config.allowUnfree = true;
         };
         specialArgs = {inherit inputs;};
