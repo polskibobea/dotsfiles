@@ -1,0 +1,7 @@
+{
+  imports = [
+    ./service
+    ./nixos
+    ./desktop
+  ];
+}
