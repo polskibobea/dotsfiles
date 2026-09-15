@@ -12,7 +12,7 @@ in {
       directory = "/home/bober";
     };
     clobberByDefault = true;
-    linker = packages.${system}.smfh;
+  #  linker = packages.${system}.smfh;
   
 
   };
