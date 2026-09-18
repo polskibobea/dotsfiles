@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     spicetify-nix.url = "github:Gerg-L/spicetify-nix";
-    tuigreet-github.url = "github:NotAShelf/tuigreet";
+    tuigreet-github.url = "github:tuigreet/tuigreet";
     nvf.url = "github:notashelf/nvf";
     hjem = {
       url = "github:feel-co/hjem";
@@ -48,7 +48,7 @@
              spicetify-nix.nixosModules.default
             nvf.nixosModules.default
             ./hosts/base
-            ./modules
+            ./base
           ];
       };
     };
