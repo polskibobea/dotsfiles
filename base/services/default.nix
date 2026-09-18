@@ -4,7 +4,8 @@
     ./ssh.nix
     ./pipewire.nix
     ./bluetooth.nix
-    ./asus.nix
+    ./networkmanager.nix
+    ./dbus.nix
     ./xdg-portal.nix
     ./displayManager.nix    
   ];
